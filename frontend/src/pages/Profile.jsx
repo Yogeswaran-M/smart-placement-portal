@@ -298,7 +298,7 @@ Edit Profile
         </p>
 
         <div className="flex flex-col gap-3 mt-3">
-            <a href={`https://smart-placement-portal-po8m.onrender.com/${formData.resume}`}
+            <a href={formData.resume}
             target='_blank'
             rel='noreferrer'
             className=' bg-black text-white px-7 py-2 rounded-lg w-fit'>View Resume</a>
@@ -309,6 +309,7 @@ Edit Profile
             >
                 Replace Resume
             </button>
+            <p>{formData.resume}</p>
 
             {resume && (
                 <>

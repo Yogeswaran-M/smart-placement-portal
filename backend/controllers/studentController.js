@@ -1,6 +1,7 @@
 import Student from "../models/studentModel.js";
 import bcrypt from "bcrypt";
 import generateToken from "../utils/generateToken.js";
+import cloudinary from "../config/cloudinary.js";
 
 const registerStudent = async (req, res) => {
     try {
@@ -132,7 +133,14 @@ const uploadResumeController = async (req, res) => {
                 message:"Student Not Found"
             });
         }
-        student.resume = `uploads/resumes/${req.file.filename}`;
+        const result = await cloudinary.uploader.upload(
+            req.file.path,
+            {
+                resource_type:"raw",
+                folder:"resumes"
+            }
+        );
+        student.resume = result.secure_url;
         await student.save();
 
         return res.status(200).json({
