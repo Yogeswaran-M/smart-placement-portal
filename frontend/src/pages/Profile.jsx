@@ -38,7 +38,7 @@ function Profile() {
             const token = localStorage.getItem("token");
 
             const res = await axios.put(
-                "http://localhost:5000/api/students/profile",
+                "https://smart-placement-portal-po8m.onrender.com/api/students/profile",
                 formData,
                 {
                     headers:{
@@ -70,7 +70,7 @@ function Profile() {
             );
             const token = localStorage.getItem("token");
             const res = await axios.put(
-                "http://localhost:5000/api/students/uploads/resumes",
+                "https://smart-placement-portal-po8m.onrender.com/api/students/uploads/resumes",
                 formData,
                 {
                     headers:{
@@ -298,7 +298,7 @@ Edit Profile
         </p>
 
         <div className="flex flex-col gap-3 mt-3">
-            <a href={`http://localhost:5000/${formData.resume}`}
+            <a href={`https://smart-placement-portal-po8m.onrender.com/${formData.resume}`}
             target='_blank'
             rel='noreferrer'
             className=' bg-black text-white px-7 py-2 rounded-lg w-fit'>View Resume</a>

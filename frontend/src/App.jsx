@@ -1,5 +1,7 @@
 import { Routes, Route, useLocation } from "react-router-dom";
 import "./App.css";
+import { useEffect } from "react";
+import axios from "axios";
 
 import Navbar from "./components/Navbar";
 
@@ -19,12 +21,16 @@ import ProtectedRoute from "./components/ProtectedRoute";
 import AdminProtectedRoute from "./components/AdminProtectedRoute";
 import AdminCompanies from "./pages/AdminCompanies";
 
+
 const App = () => {
 
   const location = useLocation();
 
   const isAdminRoute =
     location.pathname.startsWith("/admin");
+    useEffect(() => {
+      axios.get("https://smart-placement-portal-po8m.onrender.com/health")
+    },[]);
 
   return (
     <>

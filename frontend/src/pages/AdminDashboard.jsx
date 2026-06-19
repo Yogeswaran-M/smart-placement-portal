@@ -14,7 +14,7 @@ const AdminDashboard = () => {
             const token = localStorage.getItem("adminToken");
 
             const companyRes = await axios.get(
-                "http://localhost:5000/api/company/all",
+                "https://smart-placement-portal-po8m.onrender.com/api/company/all",
                 {
                     headers: {
                         Authorization: `Bearer ${token}`
@@ -25,7 +25,7 @@ const AdminDashboard = () => {
 
 
             const applicationRes = await axios.get(
-                "http://localhost:5000/api/application/all",
+                "https://smart-placement-portal-po8m.onrender.com/api/application/all",
                 {
                     headers: {
                         Authorization: `Bearer ${token}`

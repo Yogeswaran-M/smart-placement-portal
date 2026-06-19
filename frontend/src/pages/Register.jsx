@@ -27,7 +27,7 @@ const Register = () => {
       e.preventDefault();
 
       const res = await axios.post(
-        "http://localhost:5000/api/students/register",
+        "https://smart-placement-portal-po8m.onrender.com/api/students/register",
         formData
       );
       setMessage(res.data.message);

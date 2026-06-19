@@ -23,7 +23,7 @@ function AdminCompanies() {
         try {
             setLoading(true);
             const res = await axios.get(
-                "http://localhost:5000/api/company/all"
+                "https://smart-placement-portal-po8m.onrender.com/api/company/all"
             );
             console.log(res.data);
             setCompanies(res.data.companies);
@@ -47,7 +47,7 @@ function AdminCompanies() {
                 alert("Please fill all fields");
             }
             const res = await axios.put(
-                `http://localhost:5000/api/company/${editingCompany._id}`,
+                `https://smart-placement-portal-po8m.onrender.com/api/company/${editingCompany._id}`,
                 editingCompany,
                 {
                     headers: {
@@ -74,7 +74,7 @@ function AdminCompanies() {
             }
             const token = localStorage.getItem("adminToken");
             const res = await axios.delete(
-                `http://localhost:5000/api/company/${id}`,
+                `https://smart-placement-portal-po8m.onrender.com/api/company/${id}`,
                 {
                     headers: {
                         Authorization: `Bearer ${token}`
@@ -107,7 +107,7 @@ function AdminCompanies() {
         try {
             const token = localStorage.getItem("adminToken");
             const res = await axios.post(
-                `http://localhost:5000/api/company/add`,
+                `https://smart-placement-portal-po8m.onrender.com/api/company/add`,
                 formData,
                 {
                     headers: {

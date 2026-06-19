@@ -9,7 +9,7 @@ const Companies = () => {
     try{
         setLoading(true);
         const res = await axios.get(
-            "http://localhost:5000/api/company/all"
+            "https://smart-placement-portal-po8m.onrender.com/api/company/all"
         );
         console.log(res.data);
         setCompanies(res.data.companies);
@@ -25,7 +25,7 @@ const Companies = () => {
             console.log(token);
             
             const res = await axios.post(
-                "http://localhost:5000/api/application/apply",
+                "https://smart-placement-portal-po8m.onrender.com/api/application/apply",
                 {
                     companyId
                 },

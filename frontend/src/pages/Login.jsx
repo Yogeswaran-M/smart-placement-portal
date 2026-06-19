@@ -20,7 +20,7 @@ const Login = () => {
         console.log("login button clicked");
         try {
             const adminRes = await axios.post(
-                "http://localhost:5000/api/admin/login",
+                "https://smart-placement-portal-po8m.onrender.com/api/admin/login",
                 formData
             );
             console.log("Admin Login Success");
@@ -47,7 +47,7 @@ const Login = () => {
         } catch (adminError) {
         try{
             const studentRes = await axios.post(
-                "http://localhost:5000/api/students/login",
+                "https://smart-placement-portal-po8m.onrender.com/api/students/login",
                 formData
             );
             console.log(studentRes.data);

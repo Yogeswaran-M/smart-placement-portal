@@ -15,7 +15,7 @@ const AdminApplications = () => {
                 
 
             const res = await axios.get(
-                "http://localhost:5000/api/application/all",
+                "https://smart-placement-portal-po8m.onrender.com/api/application/all",
                 {
                     headers: {
                         Authorization: `Bearer ${token}`
@@ -41,7 +41,7 @@ const AdminApplications = () => {
                 "adminToken"
             );
             const res = await axios.put(
-                `http://localhost:5000/api/application/status/${id}`,
+                `https://smart-placement-portal-po8m.onrender.com/api/application/status/${id}`,
                 {status},
                 {
                 headers:{
