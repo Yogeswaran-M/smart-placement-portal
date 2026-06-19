@@ -309,7 +309,7 @@ Edit Profile
             >
                 Replace Resume
             </button>
-            <p>{formData.resume}</p>
+            {/* <p>{formData.resume}</p> */}
 
             {resume && (
                 <>

@@ -42,7 +42,7 @@ const lastLogin = localStorage.getItem("lastLogin");
         console.log(token);
         
         const res = await axios.get(
-            "/api/application/my-applications",
+            "https://smart-placement-portal-po8m.onrender.com/api/application/my-applications",
             {
                 headers:{
                     Authorization:`Bearer ${token}`
