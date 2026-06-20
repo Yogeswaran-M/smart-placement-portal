@@ -1,9 +1,18 @@
 import Application from "../models/applicationModel.js";
+import Student from '../models/studentModel.js';
 
 const applyCompany = async (req, res) => {
+    console.log("apply api hit");
+    return res.status(400).json({
+        success:false,
+        message:"test message"
+    })
+    
 try{
 const studentId = req.student._id;
 const {companyId} = req.body;
+
+const student = await Student.findById(studentId);
 
 const existingApplication = await Application.findOne({
     studentId,
@@ -17,6 +26,31 @@ if(existingApplication){
     });
 }
 
+if(
+    !student.name ||
+    !student.college ||
+    !student.degree ||
+    !student.cgpa ||
+    !student.skills ||
+    !student.resume
+){
+    console.log("Resume",student.resume);
+    console.log("Resume",student.cgpa);
+    console.log("Resume",student.skills);
+    
+    return res.status(400).json({
+        success:false,
+        message:"Complete your profile  and upload resume before applying"
+    });
+}
+console.log({
+    name: student.name,
+    college: student.college,
+    degree: student.degree,
+    cgpa: student.cgpa,
+    skills: student.skills,
+    resume: student.resume
+});
 const application = await Application.create({
     studentId,
     companyId
@@ -58,11 +92,13 @@ try{
 };
 
 const getAllApplications = async (req, res) => {
+    console.log("hello boss");
+    
     try{
         const application = await Application.find()
         .populate(
             "studentId",
-            "name email college"
+            "name email college degree cgpa skills resume"
         )
         .populate(
             "companyId",
@@ -70,6 +106,8 @@ const getAllApplications = async (req, res) => {
         );
         console.log(application);
         console.log("get all application");
+        console.log(JSON.stringify(application[0], null, 2));
+        
         
         return res.status(200).json({
             success:true,

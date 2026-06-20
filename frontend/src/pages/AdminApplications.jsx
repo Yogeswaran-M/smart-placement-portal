@@ -22,11 +22,15 @@ const AdminApplications = () => {
                     }
                 }
             );
+            
+            
             console.log("Token:", token);
             console.log("Response", res.data);
 
-
+            console.log(res.data.application[0]);
+            
             setApplication(res.data.application);
+            console.log(res.data.application);
             setLoading(false);
         } catch (error) {
             console.log(error);
@@ -79,6 +83,12 @@ const AdminApplications = () => {
 
                                 <th className="border p-3 text-left">Company</th>
 
+                                <th className="border p-3 text-left">CGPA</th>
+
+                                <th className="border p-3 text-left">Skills</th>
+
+                                <th className="border p-3 text-left">Resume</th>
+
                                 <th className="border p-3 text-left">Status</th>
 
                             </tr>
@@ -113,6 +123,31 @@ const AdminApplications = () => {
 
                                         <td className="border p-3 uppercase">
                                             {app.companyId?.companyName}
+                                        </td>
+
+                                        <td className="border p-3">
+                                            {app.studentId?.cgpa}
+                                        </td>
+
+                                        <td className="border p-3">
+                                            {app.studentId?.skills}
+                                        </td>
+
+                                        <td className="border p-3">
+                                            {
+                                                app.studentId?.resume ? (
+                                                    <a
+                                                        href={app.studentId.resume}
+                                                        target="_blank"
+                                                        rel="noreferrer"
+                                                        className="bg-blue-600 text-white px-3 py-1 rounded"
+                                                    >
+                                                        View Resume
+                                                    </a>
+                                                ) : (
+                                                    "No Resume"
+                                                )
+                                            }
                                         </td>
 
                                         <td className="border p-3">
