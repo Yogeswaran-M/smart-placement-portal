@@ -130,7 +130,7 @@ function AdminCompanies() {
             });
             setShowForm(false);
             alert("Company Added Successfully");
-        }catch(error){
+        } catch (error) {
             console.log(error);
             alert(
                 error.response?.data?.message || "Failed to Add Company"
@@ -144,7 +144,7 @@ function AdminCompanies() {
         <>
             <AdminNavbar />
 
-            <div className="p-6">
+            <div className="pt-10 px-4 md:px-6">
                 {
                     editingCompany ? (
                         <div className='bg-white p-8 rounded-xl shadow-lg mb-8'>
@@ -258,12 +258,12 @@ function AdminCompanies() {
                         <div className='bg-green-100 text-green-700 p-3 rounded mb-4'>{message}</div>
                     )
                 }
-                <div className='flex gap-245'>
+                <div className='flex flex-col md:flex-row justify-between items-start md:items-center gap-4 mb-6'>
                     <h1 className="text-3xl font-bold mb-6">
                         Manage Companies
                     </h1>
                     <button
-                        onClick={() => setShowForm(true)} className='bg-green-600 text-white rounded-lg px-4 py-2 mb-5'>Add Company</button>
+                        onClick={() => setShowForm(true)} className='bg-green-600 text-white rounded-lg px-4 py-2 w-full md:w-auto'>Add Company</button>
 
                 </div>
                 {
@@ -370,103 +370,102 @@ function AdminCompanies() {
                     )
                 }
 
+                <div className='overflow-x-auto border border-gray-300 bg-white'>
+                    <table className="w-full border border-gray-300 border-collapse">
 
-                <table className="w-full border border-gray-300">
+                        <thead className="bg-gray-100 border-b border-gray-300">
 
-                    <thead className="bg-gray-100">
+                            <tr>
 
-                        <tr>
+                                <th className="border p-3">
+                                    Company
+                                </th>
 
-                            <th className="border p-3">
-                                Company
-                            </th>
+                                <th className="border p-3">
+                                    Role
+                                </th>
 
-                            <th className="border p-3">
-                                Role
-                            </th>
+                                <th className="border p-3">
+                                    Package
+                                </th>
 
-                            <th className="border p-3">
-                                Package
-                            </th>
+                                <th className="border p-3">
+                                    Location
+                                </th>
 
-                            <th className="border p-3">
-                                Location
-                            </th>
+                                <th className="border p-3">
+                                    Actions
+                                </th>
 
-                            <th className="border p-3">
-                                Actions
-                            </th>
+                            </tr>
 
-                        </tr>
+                        </thead>
 
-                    </thead>
+                        <tbody>
 
-                    <tbody>
-
-                        {
-                            loading ? (
-                                <tr>
-                                    <td
-                                        colSpan="5"
-                                        className='text-center p-20 animate-pulse text-2xl'>
-                                        Loading Companies...
-                                    </td>
-                                </tr>
-                            ) : companies.length === 0 ? (
-                                <tr>
-                                    <td
-                                        colSpan="5"
-                                        className='text-center p-5'>
-                                        Not Companies Found
-                                    </td>
-                                </tr>
-                            ) :
-                                (companies.map((company) => (
-
-                                    <tr key={company._id}>
-
-                                        <td className="border p-3 uppercase">
-                                            {company.companyName}
+                            {
+                                loading ? (
+                                    <div className="flex justify-center items-center gap-3 py-10">
+                                        <div className="w-5 h-5 border-2 border-black border-t-transparent rounded-full animate-spin"></div>
+                                        <h2 className="font-semibold text-xl">
+                                            Loading Applications...
+                                        </h2>
+                                    </div>
+                                ) : companies.length === 0 ? (
+                                    <tr>
+                                        <td
+                                            colSpan="5"
+                                            className='text-center p-5'>
+                                            Not Companies Found
                                         </td>
-
-                                        <td className="border p-3 capitalize">
-                                            {company.role}
-                                        </td>
-
-                                        <td className="border p-3">
-                                            {company.package}
-                                        </td>
-
-                                        <td className="border p-3">
-                                            {company.location}
-                                        </td>
-
-                                        <td className="border p-3 text-center">
-
-                                            <button
-                                                onClick={() => setEditingCompany(company)}
-                                                className="bg-blue-500 text-white px-4 py-1 rounded mr-2"
-                                            >
-                                                Edit
-                                            </button>
-
-                                            <button
-                                                onClick={() => deleteCompany(company._id)}
-                                                className="bg-red-500 text-white px-3 py-1 rounded"
-                                            >
-                                                Delete
-                                            </button>
-
-                                        </td>
-
                                     </tr>
+                                ) :
+                                    (companies.map((company) => (
 
-                                )))}
+                                        <tr key={company._id}>
 
-                    </tbody>
+                                            <td className="border p-3 uppercase">
+                                                {company.companyName}
+                                            </td>
 
-                </table>
+                                            <td className="border p-3 capitalize">
+                                                {company.role}
+                                            </td>
 
+                                            <td className="border p-3">
+                                                {company.package}
+                                            </td>
+
+                                            <td className="border p-3">
+                                                {company.location}
+                                            </td>
+
+                                            <td className="border p-3 text-center whitespace-nowrap">
+
+                                                <button
+                                                    onClick={() => setEditingCompany(company)}
+                                                    className="bg-blue-500 text-white px-3 py-2 rounded mr-2 text-sm"
+                                                >
+                                                    Edit
+                                                </button>
+
+                                                <button
+                                                    onClick={() => deleteCompany(company._id)}
+                                                    className="bg-red-500 text-white px-3 py-2 rounded text-sm"
+                                                >
+                                                    Delete
+                                                </button>
+
+                                            </td>
+
+                                        </tr>
+
+                                    )))}
+
+                        </tbody>
+
+                    </table>
+                </div>
             </div>
         </>
     );

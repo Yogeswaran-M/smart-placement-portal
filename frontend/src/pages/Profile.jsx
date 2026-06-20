@@ -104,20 +104,20 @@ function Profile() {
         }
     };
 return(
-    <div className='min-h-screen bg-gray-100 p-20'>
-        <div className='bg-white shadow-lg rounded-xl p-8'>
-            <h1 className='text-4xl font-bold mb-6'>Student Profile</h1>
+    <div className='min-h-screen bg-gray-100 pt-24 px-4 md:p-20'>
+        <div className='bg-white shadow-lg rounded-xl p-5 md:p-8 max-w-5xl mx-auto'>
+            <h1 className='text-2xl md:text-4xl font-bold mb-6'>Student Profile</h1>
             <div className='mb-6'>
                 <div className='flex justify-between mb-2'>
                     <span className='font-bold hover:underline'>Profile Completion</span>
                     <span className='font-bold'>{profileCompletion}%</span>
                 </div>
                 <div className='w-full bg-gray-300 rounded-full h-4 mb-2'>
-                    <div className='bg-black h-4 rounded-full transition-all duration-500'
+                    <div className='bg-gradient-to-r from-green-500 to-blue-600 h-4 rounded-full transition-all duration-500'
                     style={{width: `${profileCompletion}%`}}></div>
                 </div>
             </div>
-            <div className='space-y-4'>
+            <div className='space-y-5 max-w-2xl'>
                 <p>
                     <strong>Name :</strong>{" "}
                     {
@@ -131,7 +131,7 @@ return(
                                 name:e.target.value    
                             })
                             }
-                            className='border p-2 rounded ml-2'
+                            className='border p-2 rounded mt-2 md:mt-0 md:ml-2 w-full md:max-w-sm'
                             />
                         ) : (
                             formData.name
@@ -171,7 +171,7 @@ return(
                                 college:e.target.value    
                             })
                             }
-                            className='border p-2 rounded ml-2'
+                            className='border p-2 rounded mt-2 md:mt-0 md:ml-2 w-full md:max-w-sm'
                             />
                         ) : (
                             formData.college
@@ -191,7 +191,7 @@ return(
                                 degree:e.target.value    
                             })
                             }
-                            className='border p-2 rounded ml-2'
+                            className='border p-2 rounded mt-2 md:mt-0 md:ml-2 w-full md:max-w-sm'
                             />
                         ) : (
                             formData.degree
@@ -211,7 +211,7 @@ return(
                                 cgpa:e.target.value    
                             })
                             }
-                            className='border p-2 rounded ml-2'
+                            className='border p-2 rounded mt-2 md:mt-0 md:ml-2 w-full md:max-w-sm'
                             />
                         ) : (
                             formData.cgpa
@@ -231,7 +231,7 @@ return(
                                 skills:e.target.value    
                             })
                             }
-                            className='border p-2 rounded ml-2'
+                            className='border p-2 rounded mt-2 md:mt-0 md:ml-2 w-full md:max-w-sm'
                             />
                         ) : (
                             formData.skills
@@ -239,9 +239,20 @@ return(
                     }
                 </p>
             </div>
-            <button
+            <div className='flex flex-col md:flex-row gap-3 mt-5'>
+                <button
             onClick={() => setEditMode(!editMode)}
-             className='bg-gray-700 text-white font-semibold rounded-lg p-2 mt-3 hover:bg-gray-900 transition'>Edit Profile</button>
+             className='bg-gray-700 text-white font-semibold rounded-lg p-2 mt-3 ml-3 hover:bg-gray-900 transition'>Edit Profile</button>
+            {
+                editMode && (
+                    <button
+                    onClick={handleUpdate}
+                     className='bg-green-600 text-white font-semibold rounded-lg p-2 mt-3 ml-3 hover:bg-green-700 transition'>Save Changes</button>
+                )
+                
+             }
+            </div>
+            
              {/* <button
 onClick={() => setEditMode(!editMode)}
 className='bg-gray-700 text-white font-semibold rounded-lg p-2 mt-3 hover:bg-gray-900 transition'
@@ -289,15 +300,15 @@ Edit Profile
             Resume Uploaded Successfully ✅
         </p>
 
-        <p className="text-sm text-gray-600 mt-2">
+        <p className="text-md font-sans text-black mt-2">
             Current File:
         </p>
 
-        <p className="font-medium">
-            {formData.resume.split("\\").pop()}
+        <p className="font-normal text-gray-500">
+            {formData.resume.split("/").pop()}
         </p>
 
-        <div className="flex flex-col gap-3 mt-3">
+        <div className="flex flex-col md:flex-row gap-3 mt-3">
             <a href={formData.resume}
             target='_blank'
             rel='noreferrer'
@@ -327,17 +338,10 @@ Edit Profile
             )}
 
         </div>
-<p>{formData.resume}</p>
+
     </div>
 )}
-             {
-                editMode && (
-                    <button
-                    onClick={handleUpdate}
-                     className='bg-green-600 text-white font-semibold rounded-lg p-2 mt-3 ml-3 hover:bg-green-700 transition'>Save Changes</button>
-                )
-                
-             }
+             
         </div>
     </div>
 )

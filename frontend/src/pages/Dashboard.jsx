@@ -74,14 +74,14 @@ console.log(application.length);
 
 
   return (
-  <div className="p-20 min-h-screen bg-gray-100 p-8">
+  <div className="pt-24 px-4 md:px-8 lg:px-20 min-h-screen bg-gray-100">
 
     {/* Header */}
 
-    <div className="bg-white border border-gray-300 rounded-2xl p-6 shadow-lg mb-8 flex justify-between items-center">
+    <div className="bg-white border border-gray-300 rounded-2xl p-4 md:p-6 shadow-lg mb-8 flex flex-col md:flex-row justify-between gap-4 md:gap-0">
 
       <div>
-        <h1 className="text-4xl font-bold text-black">
+        <h1 className="text-2xl md:text-4xl font-bold text-black wrap-break-words">
           Welcome, {student?.name}{"🎉"}
         </h1>
 
@@ -94,17 +94,17 @@ console.log(application.length);
         </p>
       </div>
 
-      <div className="flex gap-3">
+      <div className="hidden md:flex gap-2 items-center">
 
         <button
         onClick={() => navigate("/profile")}
-        className="bg-black hover:bg-gray-800 text-white font-bold px-5 py-2 rounded-lg transition">
+        className="bg-black hover:bg-gray-800 text-white font-medium px-5 py-2 rounded-lg transition w-full sm:w-auto">
           Profile
         </button>
 
         <button
           onClick={handleLogout}
-          className="bg-gray-700 hover:bg-black text-white font-bold px-5 py-2 rounded-lg transition"
+          className="bg-gray-700 hover:bg-black text-white font-medium px-5 py-2 rounded-lg transition w-full sm:w-auto"
         >
           Logout
         </button>
@@ -117,32 +117,32 @@ console.log(application.length);
 
     <div className="grid grid-cols-1 md:grid-cols-3 gap-5 mb-8">
 
-      <div className="bg-white border border-gray-300 rounded-xl p-6 text-center shadow-md">
+      <div className="bg-white rounded-2xl p-6 text-center shadow-xl hover:shadow-2xl transition duration-300 border border-gray-200">
         <h3 className="text-gray-500">
           Applications
         </h3>
 
-        <p className="text-4xl font-bold text-black mt-2">
+        <p className="text-5xl font-bold text-black mt-2">
           {application.length}
         </p>
       </div>
 
-      <div className="bg-white border border-gray-300 rounded-xl p-6 text-center shadow-md">
+      <div className="bg-white rounded-2xl p-6 text-center shadow-xl hover:shadow-2xl transition duration-300 border border-gray-200">
         <h3 className="text-gray-500">
           Skills
         </h3>
 
-        <p className="text-4xl font-bold text-black mt-2">
+        <p className="text-5xl font-bold text-black mt-2">
           {skillsCount}
         </p>
       </div>
 
-      <div className="bg-white border border-gray-300 rounded-xl p-6 text-center shadow-md">
+      <div className="bg-white rounded-2xl p-6 text-center shadow-xl hover:shadow-2xl transition duration-300 border border-gray-200">
         <h3 className="text-gray-500">
           Profile Status
         </h3>
 
-        <p className="text-xl font-bold text-gray-800 mt-2">
+        <p className="text-3xl font-bold text-green-600 mt-2">
           Active
         </p>
       </div>
@@ -157,7 +157,7 @@ console.log(application.length);
         Applied Companies
       </h2>
 
-      <span className="text-gray-600">
+      <span className="text-gray-600 text-xl">
         Total : {application.length}
       </span>
 

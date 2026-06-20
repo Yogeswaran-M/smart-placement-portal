@@ -84,19 +84,19 @@ const AdminDashboard = () => {
         <>
             <AdminNavbar />
 
-            <div className="p-6">
+            <div className="pt-10 px-4 md:px-6">
 
                 {/* Welcome Card */}
 
                 <div className="bg-white text-black rounded-2xl p-6 mb-8 shadow-lg">
 
-                    <div className="flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div className="flex flex-row items-center justify-between gap-4">
 
                         {/* Left Side */}
 
-                        <div>
+                        <div className="flex-1">
 
-                            <h1 className="text-4xl font-bold mb-2">
+                            <h1 className="text-2xl md:text-4xl font-bold mb-2">
                                 Welcome Admin 👋
                             </h1>
 
@@ -116,8 +116,9 @@ const AdminDashboard = () => {
                             <img
                                 src="/logo.jpeg"
                                 alt="Company Logo"
-                                className="w-24 h-24 md:w-32 md:h-32 object-contain"
+                                className="w-28 h-20 md:w-32 md:h-32 object-contain"
                             />
+                            <p className="text-sm font-semibold text-center mt-2">Career🔗Connect</p>
 
                         </div>
 
@@ -129,7 +130,7 @@ const AdminDashboard = () => {
 
                 <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-5 mb-8">
 
-                    <div className="bg-white rounded-xl shadow-md p-6 border">
+                    <div className="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition duration-300 p-6 border border-gray-200">
                         <h3 className="text-gray-500 font-semibold">
                             Total Companies
                         </h3>
@@ -139,7 +140,7 @@ const AdminDashboard = () => {
                         </p>
                     </div>
 
-                    <div className="bg-white rounded-xl shadow-md p-6 border">
+                    <div className="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition duration-300 p-6 border border-gray-200">
                         <h3 className="text-gray-500 font-semibold">
                             Total Applications
                         </h3>
@@ -149,7 +150,7 @@ const AdminDashboard = () => {
                         </p>
                     </div>
 
-                    <div className="bg-white rounded-xl shadow-md p-6 border">
+                    <div className="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition duration-300 p-6 border border-gray-200">
                         <h3 className="text-gray-500 font-semibold">
                             Active Companies
                         </h3>
@@ -159,7 +160,7 @@ const AdminDashboard = () => {
                         </p>
                     </div>
 
-                    <div className="bg-white rounded-xl shadow-md p-6 border">
+                    <div className="bg-white rounded-2xl shadow-xl hover:shadow-2xl transition duration-300 p-6 border border-gray-200">
                         <h3 className="text-gray-500 font-semibold">
                             Inactive Companies
                         </h3>
@@ -196,7 +197,7 @@ const AdminDashboard = () => {
 
                                             <div
                                                 key={app._id}
-                                                className="border rounded-lg p-3"
+                                                className="border rounded-xl p-4 shadow-sm hover:shadow-md transition"
                                             >
 
                                                 <p>
