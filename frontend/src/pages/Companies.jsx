@@ -83,7 +83,7 @@ const Companies = () => {
                 {companies.map((company) => (
                     <div
                         key={company._id}
-                        className="bg-white shadow-lg rounded-2xl p-5 border hover:shadow-2xl transition duration-300 w-full flex flex-col h-[400px]"
+                        className="bg-white shadow-lg rounded-2xl p-5 border hover:shadow-2xl transition duration-300 w-full flex flex-col h-[430px]"
                     >
                         <h2 className="text-2xl md:text-3xl font-bold mb-4 break-words">
                             {company.companyName.toUpperCase()}

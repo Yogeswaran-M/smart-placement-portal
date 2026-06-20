@@ -2,11 +2,6 @@ import Application from "../models/applicationModel.js";
 import Student from '../models/studentModel.js';
 
 const applyCompany = async (req, res) => {
-    console.log("apply api hit");
-    return res.status(400).json({
-        success:false,
-        message:"test message"
-    })
     
 try{
 const studentId = req.student._id;
@@ -34,9 +29,9 @@ if(
     !student.skills ||
     !student.resume
 ){
-    console.log("Resume",student.resume);
-    console.log("Resume",student.cgpa);
-    console.log("Resume",student.skills);
+    // console.log("Resume",student.resume);
+    // console.log("Resume",student.cgpa);
+    // console.log("Resume",student.skills);
     
     return res.status(400).json({
         success:false,
@@ -92,7 +87,6 @@ try{
 };
 
 const getAllApplications = async (req, res) => {
-    console.log("hello boss");
     
     try{
         const application = await Application.find()
@@ -104,9 +98,9 @@ const getAllApplications = async (req, res) => {
             "companyId",
             "companyName role"
         );
-        console.log(application);
-        console.log("get all application");
-        console.log(JSON.stringify(application[0], null, 2));
+        // console.log(application);
+        // console.log("get all application");
+        // console.log(JSON.stringify(application[0], null, 2));
         
         
         return res.status(200).json({
