@@ -140,7 +140,7 @@ const AdminApplications = () => {
                                                         href={app.studentId.resume}
                                                         target="_blank"
                                                         rel="noreferrer"
-                                                        className="bg-blue-600 text-white px-3 py-1 rounded"
+                                                        className="bg-blue-600 text-white px-3 py-2 rounded"
                                                     >
                                                         View Resume
                                                     </a>
