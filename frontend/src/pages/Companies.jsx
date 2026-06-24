@@ -4,6 +4,13 @@ import axios from "axios";
 const Companies = () => {
     const [companies, setCompanies] = useState([]);
     const [loading, setLoading] = useState(true);
+    const [search, setSearch] = useState("");
+
+    const filteredCompanies = companies.filter((company) =>
+    company.companyName
+        .toLowerCase()
+        .includes(search.toLowerCase())
+);
 
     const getAllCompanies = async () => {
         try {
@@ -78,9 +85,25 @@ const Companies = () => {
             <h1 className="text-3xl md:text-4xl font-bold mb-6 md:mb-8 text-center">
                 All Companies
             </h1>
+            <input
+             type="text"
+             placeholder="Search Company..."
+             value={search}
+             onChange={(e) => setSearch(e.target.value)}
+             className="border p-2 rounded-lg w-full md:w-80 mb-4"
+             />
+             {
+                filteredCompanies.length === 0 ? (
+                    <h2 className="text-center text-red-500 text-xl mt-10">Company Not Found</h2>
+                ) : (
+                    filteredCompanies.map((company) => {
+                        //company card
+                    })
+                )
+             }
 
             <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6">
-                {companies.map((company) => (
+                {filteredCompanies.map((company) => (
                     <div
                         key={company._id}
                         className="bg-white shadow-lg rounded-2xl p-5 border hover:shadow-2xl transition duration-300 w-full flex flex-col h-[430px]"

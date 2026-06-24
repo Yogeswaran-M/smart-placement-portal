@@ -1,12 +1,15 @@
+import dotenv from "dotenv";
+console.log("KEY LOADED:", process.env.GEMINI_API_KEY ? "yes" : "MISSING");
 import express from "express";
 import cors from "cors";
-import dotenv from "dotenv";
 import path from 'path';
 import connectDB from "./config/db.js";
 import studentRoutes from "./routes/studentRoutes.js";
 import companyRoutes from "./routes/companyRoutes.js";
 import applicationRoutes from "./routes/applicationRoutes.js";
 import adminRoutes from "./routes/adminRoutes.js";
+import resumeRoutes from "./routes/resumeRoutes.js";
+import { analyzeResume } from "./controllers/resumeController.js";
 
 dotenv.config();
 //connect mongoDB
@@ -23,9 +26,9 @@ app.use("/api/application", applicationRoutes);
 
 app.use("/uploads", express.static("uploads"));
 
-
-
 app.use("/api/admin", adminRoutes);
+
+app.use("/api/resume", resumeRoutes);
 
 app.get("/", (req, res) => {
     res.send("Smart Placement Portal API Running");
